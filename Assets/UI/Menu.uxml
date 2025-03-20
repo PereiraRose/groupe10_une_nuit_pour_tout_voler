@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MenuStyles.uss?fileID=7433441132597879392&amp;guid=6d7866758fb904477b8f987259a9f22f&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="ImageFond" style="flex-grow: 1; width: auto; height: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-background-image-tint-color: rgb(206, 221, 255); background-color: rgba(255, 255, 255, 0); border-left-color: rgba(56, 56, 56, 0); border-right-color: rgba(56, 56, 56, 0); border-top-color: rgba(56, 56, 56, 0); border-bottom-color: rgba(56, 56, 56, 0); border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; background-image: url(&quot;project://database/Assets/UI/image%20fond%20menu.jpg?fileID=2800000&amp;guid=98b9eeef073f7475ea385987ac221b94&amp;type=3#image fond menu&quot;); align-items: center; justify-content: flex-start;">
+        <ui:VisualElement name="Logo" style="flex-grow: 1; width: 80%; height: 20%; align-items: center; align-self: center; background-image: url(&quot;project://database/Assets/UI/logo.PNG?fileID=2800000&amp;guid=2503f0e4876f14771b9e813b26be9036&amp;type=3#logo&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); -unity-background-scale-mode: scale-to-fit; justify-content: flex-start; margin-top: 5%;" />
+        <ui:VisualElement name="BoutonsMenu" style="flex-grow: 1; justify-content: center; padding-left: 0; padding-bottom: 2%; margin-bottom: 0; background-color: rgba(0, 0, 0, 0); align-items: center; padding-top: 0; padding-right: 0; position: relative;">
+            <ui:Button text="Jouer" parse-escape-sequences="true" display-tooltip-when-elided="true" name="playButton" class="bouton-principal" />
+            <ui:Button text="Règlages" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BtnReglages" class="bouton-menu" />
+            <ui:Button text="Quitter" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BtnQuitter" class="bouton-menu" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Credits" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

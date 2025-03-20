@@ -1,0 +1,66 @@
+.bouton-menu {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    -unity-font-style: normal;
+    font-size: 15px;
+    color: rgb(23, 36, 101);
+    -unity-text-outline-color: rgba(56, 56, 56, 0);
+    transition-duration: 0.25s;
+    -unity-font: url("project://database/Assets/UI/Livvic/Livvic-Regular.ttf?fileID=12800000&guid=d4bd684816e6b48279db87fd1e4205c7&type=3#Livvic-Regular");
+    -unity-font-definition: url("project://database/Assets/UI/Livvic-Regular%20SDF.asset?fileID=11400000&guid=d7b9cfe28e47f40dba048ae608efdb38&type=2#Livvic-Regular SDF");
+}
+
+.bouton-principal {
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(32, 57, 113);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    width: 130%;
+    justify-content: flex-start;
+    transition-duration: 0.25s;
+    -unity-font: url("project://database/Assets/Livvic-Regular.ttf?fileID=12800000&guid=eeebce86f896a4ccf971c813c2734007&type=3#Livvic-Regular");
+    -unity-font-definition: url("project://database/Assets/UI/Livvic-Regular%20SDF.asset?fileID=11400000&guid=d7b9cfe28e47f40dba048ae608efdb38&type=2#Livvic-Regular SDF");
+}
+
+.bouton-principal:hover {
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(32, 57, 113);
+    -unity-font-style: bold;
+    font-size: 20px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.25s;
+    scale: 0.9 0.9;
+    translate: 0 0;
+    opacity: 1;
+}
+
+.bouton-menu:hover {
+    -unity-font-style: normal;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(32, 57, 113);
+    scale: 0.85 0.85;
+}
