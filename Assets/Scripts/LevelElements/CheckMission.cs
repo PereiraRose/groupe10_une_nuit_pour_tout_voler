@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class CheckMission : MonoBehaviour
@@ -14,18 +15,23 @@ public class CheckMission : MonoBehaviour
         List<string> forbiddenPaintings;
         bool missionCompleted = inv.HasCompletedMission(out forbiddenPaintings);
 
-        if (forbiddenPaintings.Count > 0)
+/*
+        if (forbiddenPaintings.Count > 0) 
         {
             string forbiddenList = string.Join(", ", forbiddenPaintings);
             Debug.Log("❌ Mission échouée ! Tu as volé des œuvres interdites : " + forbiddenList);
+            SceneManager.LoadScene("Game Over"); 
         }
-        else if (missionCompleted)
+        else */
+        if (missionCompleted)
         {
             Debug.Log("✅ Mission réussie ! Tu as volé toutes les œuvres demandées !");
+            SceneManager.LoadScene("VICTORY");
         }
         else
         {
             Debug.Log("❌ Mission incomplète... Il manque des œuvres !");
+            SceneManager.LoadScene("GameOver"); 
         }
     }
 }

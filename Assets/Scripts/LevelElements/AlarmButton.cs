@@ -3,11 +3,11 @@ using UnityEngine;
 public class AlarmButton : MonoBehaviour
 {
     private bool isPlayerNearby = false;
-    private LaserManager laserManager; // Référence à l’alarme
+    private LaserManager laserManager; // Référence à la gestion de l'alarme
 
     private void Start()
     {
-        laserManager = FindObjectOfType<LaserManager>(); // Trouve l'alarme dans la scène
+        laserManager = FindObjectOfType<LaserManager>(); // Trouve le LaserManager dans la scène
     }
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +15,7 @@ public class AlarmButton : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            if (laserManager != null && laserManager.IsAlarmActive()) // ✅ Vérifie si l'alarme est activée
+            if (laserManager != null && laserManager.IsAlarmActive()) // Vérifie si l'alarme est activée
             {
                 HudManager hud = HudManager.instance;
 
@@ -35,22 +35,22 @@ public class AlarmButton : MonoBehaviour
             HudManager hud = HudManager.instance;
             if (hud != null)
             {
-                hud.eraseMessage();
+                hud.eraseMessage(); // Efface le message quand le joueur quitte la zone
             }
         }
     }
 
     private void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
+        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Si le joueur est à proximité et appuie sur "E"
         {
-            if (laserManager != null && laserManager.IsAlarmActive()) // ✅ Vérifie si l’alarme est bien activée avant d'autoriser l'interaction
+            if (laserManager != null && laserManager.IsAlarmActive()) // Vérifie si l'alarme est activée
             {
-                laserManager.DisableAlarm();
+                laserManager.DisableAlarm(); // Désactive l'alarme
                 HudManager hud = HudManager.instance;
                 if (hud != null)
                 {
-                    hud.showMessage("Alarme Désactivée");
+                    hud.showMessage("Alarme Désactivée"); // Affiche un message de confirmation
                 }
             }
         }

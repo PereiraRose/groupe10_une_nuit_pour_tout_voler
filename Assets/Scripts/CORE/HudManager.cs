@@ -29,8 +29,8 @@ public class HudManager : MonoBehaviour
     if (canvasAlerte != null && alerteMessageText != null)
     {
         canvasAlerte.SetActive(true); // ✅ Active le Canvas
-        alerteMessageText.text = "Retournez à l'entrée pour désactiver l'alarme !"; // 📝 Met à jour le texte
-        StartCoroutine(HideAlarmAfterDelay(10f)); // ⏳ Cache après 30s
+        alerteMessageText.text = "15s pour retournez à l'entrée et désactiver l'alarme !"; // 📝 Met à jour le texte
+        StartCoroutine(HideAlarmAfterDelay(20f)); // ⏳ Cache après 20s
     }
 }
 

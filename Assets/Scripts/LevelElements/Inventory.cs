@@ -62,13 +62,13 @@ public class Inventory : MonoBehaviour
         "Les 4 saisons",
         "Le rêve",
         "La Dame en bleu",
-        "La Joconde",
-        "Les Ménines",
-        "Madame de Pompadour",
+        // "La Joconde",
+        // "Les Ménines",
+        // "Madame de Pompadour",
         "Autoportrait au collier d'épines et colibri",
         "Le fils de l'homme",
-        "Portrait d’un homme au turban rouge",
-        "Portrait de Napoléon en costume de sacre",
+        // "Portrait d’un homme au turban rouge",
+        // "Portrait de Napoléon en costume de sacre",
         "Portrait de Vincent van Gogh",
     };
 
@@ -138,6 +138,7 @@ public class Inventory : MonoBehaviour
     public bool HasCompletedMission(out List<string> forbiddenCollected)
 {
     forbiddenCollected = new List<string>();
+    if(PlayerInventory.Count == 0) return false;
 
     Debug.Log("📌 Vérification des œuvres interdites...");
     foreach (string painting in ForbiddenPaintings)
