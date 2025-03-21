@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   video: {fileID: 1217049810}
-  sceneName: Scene Rose
+  sceneName: Museum TEST
 --- !u!1 &1407927850
 GameObject:
   m_ObjectHideFlags: 0

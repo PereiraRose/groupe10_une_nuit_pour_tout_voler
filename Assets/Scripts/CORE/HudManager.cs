@@ -7,14 +7,15 @@ using TMPro;
 
 public class HudManager : MonoBehaviour
 {
+	[SerializeField] private GameObject canvasAlerte; // 🎨 Canvas qui affiche le message d'alarme
+	[SerializeField] private TMP_Text alerteMessageText; // 📝 Texte qui affichera l'alarme
+
 	public static HudManager instance = null;
 	
 	private int pv_max = 100;
 	private int pv = 100;
 	private Item item = Item.None;
 	
-	[SerializeField] private GameObject hud_item;
-	[SerializeField] private GameObject hud_pv;
 	[SerializeField] private GameObject hud_message;
 	[SerializeField] private GameObject panel_pause;
 	
@@ -23,7 +24,31 @@ public class HudManager : MonoBehaviour
 	private float timer_message = 0f;
 	
 	public static bool pause = false;
-	
+	public void ShowAlarmMessage()
+{
+    if (canvasAlerte != null && alerteMessageText != null)
+    {
+        canvasAlerte.SetActive(true); // ✅ Active le Canvas
+        alerteMessageText.text = "Retournez à l'entrée pour désactiver l'alarme !"; // 📝 Met à jour le texte
+        StartCoroutine(HideAlarmAfterDelay(10f)); // ⏳ Cache après 30s
+    }
+}
+
+public void HideAlarmMessage()
+{
+    if (canvasAlerte != null)
+    {
+        canvasAlerte.SetActive(false); // ❌ Cache le Canvas
+    }
+}
+
+// ⏳ Coroutine pour cacher l’alarme après un délai
+private IEnumerator HideAlarmAfterDelay(float delay)
+{
+    yield return new WaitForSeconds(delay);
+    HideAlarmMessage();
+}
+
 	//Ajouter les sprites des items ici
 	[SerializeField] private Sprite[] item_sprites;
 	
@@ -37,12 +62,10 @@ public class HudManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(hud_item == null || hud_pv == null || hud_message == null){
+        if(hud_message == null){
 			Debug.Log("hud mal configuré");
 		}
 		
-		updateItem();
-		updatePV();
 		hud_message.SetActive(false);
 		
 		AudioManager am = AudioManager.instance;
@@ -66,10 +89,6 @@ public class HudManager : MonoBehaviour
 			}
 		}
 		
-		//Si le joueur n'a plus de PV, on le redirige vers la scène de game over
-		if(pv == 0){
-			SceneManager.LoadScene("GameOver");
-		}
 		//Si on appuie sur P
 		if(Input.GetKeyDown(KeyCode.P)){
 			pause = !pause;
@@ -81,68 +100,6 @@ public class HudManager : MonoBehaviour
 			}
 		}
     }
-	
-	//Regarde si le joueur a tous ses PV
-	public bool fullPV(){
-		return pv == pv_max;
-	}
-	
-	//Pour ajouter des PV
-	public void addPV(int val){
-		pv = Mathf.Min(pv_max, pv + val);
-		updatePV();
-	}
-	
-	//Pour enlever des PV
-	public void subPV(int val){
-		pv = Mathf.Max(0, pv - val);
-		updatePV();
-	}
-	
-	//Pour modifier le nombre de PV sur l'HUD
-	public void updatePV(){
-		hud_pv.GetComponent<TMP_Text>().SetText("PV : " + pv.ToString());
-	}
-	
-	//Pour savoir si on a un item
-	public bool hasItem(){
-		return item != Item.None;
-	}
-	
-	//Pour savoir si on a un item spécifique
-	public bool gotItem(Item check){
-		return item == check;
-	}
-	
-	//Pour mettre un item
-	public void addItem(Item new_item){
-		item = new_item;
-		updateItem();
-	}
-	
-	//Pour enlever un item
-	public void deleteItem(){
-		item = Item.None;
-		updateItem();
-	}
-	
-	//Pour modifier l'icone en haut à droite
-	public void updateItem(){	
-		if(!hasItem()){ //Si on n'a pas d'item
-			//On cache l'image en haut à droite
-			hud_item.SetActive(false);
-		} else {
-			hud_item.SetActive(true);
-			
-			//Change le sprite en fonction de l'item
-			switch(item){
-				case Item.ClassicKey:
-					hud_item.GetComponent<Image>().sprite = item_sprites[0];
-					break;
-			}
-		}
-	}
-	
 	//Afficher un message momentanément
 	public void showMessage(string message){
 		hud_message.SetActive(true);
